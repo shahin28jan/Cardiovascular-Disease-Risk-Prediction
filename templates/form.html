@@ -1,0 +1,197 @@
+<html>
+<body>
+  <html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardiovascular Disease Risk Prediction</title>
+    <div style="background-image: url(https://cdn.wallpapersafari.com/32/79/CXbB2J.jpg);">
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+    <!-- css -->
+    <link rel="stylesheet" href="static/css/styles.css">
+    
+
+</head>
+
+<body>
+
+    <!-- As a heading -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Cardiovascular Disease Risk Prediction By Shahin Anjum </a>
+            </div>
+        </div>
+    </nav>
+
+    <br>
+
+
+    <div class="container">
+
+  <form action="{{url_for('predict_datapoint')}}" method="POST">     
+    <div class="form-group">
+        <label for="Height">Height:</label>
+        <input type="text" id="Height" name="Height" placeholder="Enter Height value (float)">
+    </div>
+
+      
+
+    <div class="form-group">
+        <label for="Weight">Weight:</label>
+        <input type="text" id="Weight" name="Weight" placeholder="Weight value (float)">
+    </div>
+   
+
+    <div class="form-group">
+      <label for="BMI">BMI:</label>
+      <input type="text" id="BMI" name="BMI" placeholder="Enter BMI value (float)">
+    </div>
+
+
+    <div class="form-group">
+      <label for="Alcohol_Consumption">Alcohol_Consumption:</label>
+      <input type="text" id="Alcohol_Consumption" name="Alcohol_Consumption" placeholder="Enter Alcohol_Consumption value (float)">
+    </div>
+
+    <div class="form-group">
+      <label for="Fruit_Consumption">Fruit_Consumption:</label>
+      <input type="text" id="Fruit_Consumption" name="Fruit_Consumption" placeholder="Enter Fruit_Consumption value (float)">
+    </div>
+
+    <div class="form-group">
+      <label for="Green_Vegetables_Consumption">Green_Vegetables_Consumption:</label>
+      <input type="text" id="Green_Vegetables_Consumption" name="Green_Vegetables_Consumption" placeholder="Enter Green_Vegetables_Consumption value (float)">
+    </div>
+
+    <div class="form-group">
+      <label for="FriedPotato_Consumption">FriedPotato_Consumption:</label>
+      <input type="text" id="FriedPotato_Consumption" name="FriedPotato_Consumption" placeholder="Enter FriedPotato_Consumption value (float)">
+    </div>
+
+
+   
+    
+    
+<div class="form-group">
+  <label for="General_Health">General_Health:</label>
+  <select id="General_Health" name="General_Health">
+    <option value="Poor">Poor</option>
+    <option value="Very Good">Very Good</option>
+    <option value="Good">Good</option>
+    <option value="Fair">Fair</option>
+    <option value="Excellent">Excellent</option>
+  </select>
+</div>
+
+
+<div class="form-group">
+  <label for="Checkup">Checkup:</label>
+  <select id="Checkup" name="Checkup">
+    <option value="Within the past 2 years">Within the past 2 years</option>
+    <option value="Within the past year">Within the past year</option>
+    <option value="5 or more years ago">5 or more years ago</option>
+    <option value="Within the past 5 years">Within the past 5 years</option>
+    <option value="Never">Never</option>
+  </select>
+</div>
+
+
+<div class="form-group">
+  <label for="Exercise">Exercise:</label>
+  <select id="Exercise" name="Exercise">
+    <option value="No">No</option>
+    <option value="Yes">Yes</option>
+  </select>
+</div>
+  
+
+<div class="form-group">
+  <label for="Skin_Cancer">Skin_Cancer:</label>
+  <select id="Skin_Cancer" name="Skin_Cancer">
+    <option value="No">No</option>
+    <option value="Yes">Yes</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="Other_Cancer">Other_Cancer:</label>
+  <select id="Other_Cancer" name="Other_Cancer">
+    <option value="No">No</option>
+    <option value="Yes">Yes</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="Depression">Depression:</label>
+  <select id="Depression" name="Depression">
+    <option value="No">No</option>
+    <option value="Yes">Yes</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="Diabetes">Diabetes:</label>
+  <select id="Diabetes" name="Diabetes">
+    <option value="No">No</option>
+    <option value="Yes">Yes</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="Arthritis">Arthritis:</label>
+  <select id="Arthritis" name="Arthritis">
+    <option value="No">No</option>
+    <option value="Yes">Yes</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="Sex">Sex:</label>
+  <select id="Sex" name="Sex">
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+  </select>
+</div>
+
+
+<div class="form-group">
+  <label for="Age_Category">Age_Category:</label>
+  <select id="Age_Category" name="Age_Category">
+    <option value="70-74">70-74</option>
+    <option value="60-64">60-64</option>
+    <option value="75-79">75-79</option>
+    <option value="80">80</option>
+    <option value="65-69">65-69</option>
+    <option value="50-54">50-54</option>
+    <option value="45-49">45-49</option>
+    <option value="18-24">18-24</option>
+    <option value="30-34">30-34</option>
+    <option value="55-59">55-59</option>
+    <option value="35-39">35-39</option>
+    <option value="40-44">40-44</option>
+    <option value="25-29">25-29</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="Smoking_History">Smoking_History:</label>
+  <select id="Smoking_History" name="Smoking_History">
+    <option value="No">No</option>
+    <option value="Yes">Yes</option>
+  </select>
+</div>
+
+
+
+<div style="clear:both;"></div>
+  <input type="submit" value="Submit">
+</form>
+</body>
+</body>
+</html>
